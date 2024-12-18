@@ -157,6 +157,6 @@ IDIOM_DICTIONARY = {
 "हरफन‌ मौला, ‌हरफन अधूरा": "Jack of all trades, master of none.",
 "देखो सब कुछ, कहो बहुत थोड़ा": "Keep your mouth shut and your eyes open."
 }
-MODEL_PATH = r"C:\\Users\\USIT\\HINDI_MODEL\\fine_tuned_model\\opus-mt-hi-en"
-TRAIN_CSV_PATH = r'''C:\\Users\\USIT\\HINDI_MODEL\\dataset\\idioms_dataset.csv'''
-VAL_CSV_PATH = r'''C:\\Users\\USIT\\HINDI_MODEL\\dataset\\idioms_dataset_val.csv'''
+MODEL_PATH = r"C:\\Users\\USIT\\HINDI_MODEL_FINAL\\Hindi_Idioms_model_translation\\fine_tuned_model\\opus-mt-hi-en"
+TRAIN_CSV_PATH = r'''C:\\Users\\USIT\\HINDI_MODEL_FINAL\\Hindi_Idioms_model_translation\\dataset\\idioms_dataset.csv'''
+VAL_CSV_PATH = r'''C:\\Users\\USIT\\HINDI_MODEL_FINAL\\Hindi_Idioms_model_translation\\dataset\\idioms_dataset_val.csv'''
