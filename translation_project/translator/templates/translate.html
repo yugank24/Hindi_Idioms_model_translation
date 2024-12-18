@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hindi Idiom to English</title>
+    <style>
+        /* General body styling */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-image: url('https://via.placeholder.com/1500x900'); /* Replace with AI-generated background */
+            background-size: cover;
+            background-position: center;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #000000;
+        }
+
+        /* Chat container for translation */
+        .chat-container {
+            width: 400px;
+            max-width: 100%;
+            background-color: rgba(255, 255, 255, 0.9); /* Light semi-transparent background */
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            height: 80vh;
+        }
+
+        /* Header styling */
+        .chat-header {
+            background-color: #4CAF50; /* Green header */
+            color: #fff;
+            text-align: center;
+            padding: 15px;
+            font-size: 1.25rem;
+            font-weight: bold;
+            border-bottom: 1px solid #ddd;
+        }
+
+        /* Message container styling */
+        .chat-body {
+            padding: 10px;
+            flex-grow: 1;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .chat-message {
+            margin: 10px;
+            padding: 10px 15px;
+            border-radius: 25px;
+            max-width: 70%;
+            font-size: 1rem;
+            position: relative;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        /* User message styling (left side) */
+        .user-message {
+            background-color: #cdf6fb; /* Light cyan for user */
+            align-self: flex-start;
+            border-top-left-radius: 0;
+        }
+
+        /* Translator message styling (right side) */
+        .translator-message {
+            background-color: #fff3e0; /* Light orange for translator */
+            align-self: flex-end;
+            border-top-right-radius: 0;
+        }
+
+        /* Form and input styling */
+        form {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px;
+            border-top: 1px solid #3f3e3e;
+            background-color: #ffffff;
+        }
+
+        textarea {
+            width: 90%;
+            padding: 10px 15px;
+            border-radius: 20px;
+            border: 1px solid #ddd;
+            font-size: 1rem;
+            resize: none;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        button {
+            padding: 10px 15px;
+            background-color: #4CAF50; /* Green button */
+            color: #ffffff;
+            border: none;
+            border-radius: 25px;
+            margin-left: 10px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #45a049; /* Darker green on hover */
+        }
+
+        /* Smooth hover effects on chat messages */
+        .chat-message:hover {
+            transform: scale(1.02);
+            transition: transform 0.2s ease-in-out;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .chat-container {
+                width: 90%;
+            }
+            .chat-header {
+                font-size: 1.1rem;
+            }
+            .chat-message {
+                font-size: 0.9rem;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Chat Interface -->
+    <div class="chat-container">
+        <!-- Header -->
+        <div class="chat-header">
+            Hindi Idiom to English
+        </div>
+
+        <!-- Chat messages area -->
+        <div class="chat-body">
+            <div class="chat-message user-message">
+                <p>Hello</p>
+            </div>
+            {% if translation_result %}
+            <div class="chat-message translator-message">
+                <p>{{ translation_result }}</p>
+            </div>
+            {% endif %}
+        </div>
+
+        <!-- Input form -->
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Translate</button>
+        </form>
+    </div>
+
+</body>
+</html>
